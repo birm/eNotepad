@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>eNotepad Localstorage Version</title>
+</head>
+<body>
+  <h1>Using local storage and triggering downloads as needed.</h1>
+  <textarea id="pad"></textarea>
+  <input type="button" value="Save" id="savebtn">
+  <input type="button" value="Restore" id="restorebtn">
+  <input type="button" value="Download" id="downloadbtn">
+</body>
+<script>
+function save(){
+  var value = document.getElementById('pad').value
+  window.localStorage.setItem("text", value)
+}
+function restore(){
+  var value = window.localStorage.getItem("text")
+  document.getElementById('pad').value = value
+}
+function download(){
+    var value = window.localStorage.getItem("text")
+    var a = window.document.createElement('a');
+    a.href = window.URL.createObjectURL(new Blob([value], {type: 'text/plain'}));
+    a.download = 'eNotepad.txt';
+
+    document.body.appendChild(a)
+    a.click();
+    document.body.removeChild(a)
+}
+document.getElementById('savebtn').onclick = save
+document.getElementById('restorebtn').onclick = restore
+document.getElementById('downloadbtn').onclick = download
+
+</script>
+
+</html>
