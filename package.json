@@ -1,0 +1,26 @@
+{
+  "name": "enotepad",
+  "version": "1.0.0",
+  "description": "electronic notepad application",
+  "main": "index.js",
+  "scripts": {
+    "test": "true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/birm/eNotepad.git"
+  },
+  "keywords": [
+    "notepad",
+    "application"
+  ],
+  "author": "birm",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/birm/eNotepad/issues"
+  },
+  "homepage": "https://github.com/birm/eNotepad#readme",
+  "devDependencies": {
+    "electron": "^3.0.10"
+  }
+}
