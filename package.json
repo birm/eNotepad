@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "electronic notepad application",
   "main": "index.js",
+  "email": "birm@rbirm.us",
   "scripts": {
-    "start": "./node_modules/.bin/electron ."
+    "postinstall": "install-app-deps",
+    "start": "./node_modules/.bin/electron .",
+    "pack": "build --dir",
+    "dist": "build"
   },
   "repository": {
     "type": "git",
@@ -14,13 +18,33 @@
     "notepad",
     "application"
   ],
-  "author": "birm",
+  "author": {
+    "name": "Birm",
+    "email": "birm@rbirm.us"
+  },
   "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/birm/eNotepad/issues"
   },
+  "build": {
+    "appId": "us.rbirm.enotepad",
+    "dmg": {
+      "icon": "build/icon.icns"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "NSIS",
+      "icon": "build/icon.ico"
+    }
+  },
   "homepage": "https://github.com/birm/eNotepad#readme",
   "devDependencies": {
-    "electron": "^3.0.10"
+    "electron": "^3.0.10",
+    "electron-builder": "^20.38.2"
   }
 }
